@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:base_station_simulation/gui/app_config_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:base_station_simulation/gui/simulation.dart';
 import 'package:provider/provider.dart';
@@ -13,10 +12,9 @@ void main() async {
     WindowManager.instance.setMinimumSize(const Size(1200, 700));
     WindowManager.instance.setMaximumSize(const Size(1200, 700));
   }
-  runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => AppConfigProvider())],
-    child: const MyApp(),
-  ));
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +23,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var appConfig = Provider.of<AppConfigProvider>(context, listen: false);
     return MaterialApp(
       title: 'Base Station Simulation',
       theme: ThemeData(

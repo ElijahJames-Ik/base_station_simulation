@@ -1,14 +1,12 @@
 import 'dart:async';
 
-import 'package:base_station_simulation/functions/live_data.dart';
-import 'package:base_station_simulation/functions/packet.dart';
-import 'package:base_station_simulation/gui/app_config_provider.dart';
+import 'package:base_station_simulation/models/live_data.dart';
+import 'package:base_station_simulation/models/packet.dart';
 import 'package:base_station_simulation/gui/channel_widget.dart';
 import 'package:base_station_simulation/gui/custom_toggle.dart';
 import 'package:base_station_simulation/gui/text_field.dart';
 import 'package:base_station_simulation/gui/validator_operations.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
 import 'package:syncfusion_flutter_charts/charts.dart';
