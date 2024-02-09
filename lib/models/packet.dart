@@ -5,7 +5,7 @@ class packet {
   // video has a minimum of 100mb to max of 300mb
 
   final int packetType;
-  final double megabyte;
+  final int megabyte;
   int disposeTime;
   int queueWaitTime;
   double price;

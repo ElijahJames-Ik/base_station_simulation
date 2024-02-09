@@ -148,6 +148,31 @@ class ValidatorOperations {
     }
   }
 
+  static String? isDoubleAndGreaterThan(String? value, double previous,
+      {bool allowZero = false}) {
+    if (value!.isEmpty) {
+      return 'Input required. \n';
+    } else {
+      try {
+        double val = double.parse(value);
+        if (val > 0) {
+          if (val < previous) {
+            return 'Value must be greater than the price above';
+          } else {
+            return null;
+          }
+        } else {
+          if (val == 0 && allowZero == true) {
+            return null;
+          }
+          return 'Please value must be greater than 0.\n';
+        }
+      } catch (err) {
+        return 'Please enter a valid number.\n';
+      }
+    }
+  }
+
   static String? isDoubleLoanAmt(
     String? value,
     double limit,
