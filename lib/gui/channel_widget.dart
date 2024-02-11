@@ -18,12 +18,6 @@ class _ChannelWidgetState extends State<ChannelWidget> {
     super.initState();
   }
 
-  // void changeState() {
-  //   setState(() {
-  //     state = !state;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(

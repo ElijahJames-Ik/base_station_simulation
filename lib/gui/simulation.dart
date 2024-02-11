@@ -89,6 +89,17 @@ class _SimulationWidgetState extends State<SimulationWidget> {
     return File('$path/base_station_data.txt');
   }
 
+  void clearData() {
+    processPackets();
+    currentRuntime = 0;
+    waitQueue.clear();
+    videoData = 0;
+    audioData = 0;
+    textData = 0;
+    revenue = 0;
+    dataSent = 0;
+  }
+
   void writeData() async {
     try {
       var file = await getFile();
@@ -390,9 +401,7 @@ class _SimulationWidgetState extends State<SimulationWidget> {
                       if (newTextMax > 0 && newTextMax > newTextMin) {
                         textMax = newTextMax;
                       }
-                      processPackets();
-                      currentRuntime = 0;
-                      waitQueue.clear();
+                      clearData();
                       writeData();
                       Navigator.of(context).pop();
                     },
@@ -475,12 +484,6 @@ class _SimulationWidgetState extends State<SimulationWidget> {
         activitiy_list.add("packet removed from waiting queue.");
         activitiy_list.add("packet added to processing channel");
       }
-      //  else {
-      //   waitQueue[i].queueWaitTime -= 1;
-      //   if (waitQueue[i].queueWaitTime == 0) {
-      //     waitQueue.removeAt(i);
-      //   }
-      // }
     }
   }
 
@@ -1078,6 +1081,7 @@ class _SimulationWidgetState extends State<SimulationWidget> {
                                         Switch(
                                             value: isParisMetro,
                                             onChanged: (value) {
+                                              clearData();
                                               setState(() {
                                                 isParisMetro = !isParisMetro;
                                                 if (isParisMetro) {
